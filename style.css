@@ -181,6 +181,7 @@ nav {
 }
 
 .about-me__picture--mask {
+    position: relative;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -202,13 +203,31 @@ nav {
     }
 }
 
-.about-me__picture {
+.about-me__picture, .about-me__picture--overlay {
     width: 100%;
     height: 115%;
     object-fit: cover;
     /* Improving image */
     transform: scale(1.25);
     padding-top: 8px;
+}
+
+.about-me__picture--overlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.about-me__picture--mask:hover .about-me__picture--overlay {
+    opacity: 1;
 }
 
 .about-me__info--title {
